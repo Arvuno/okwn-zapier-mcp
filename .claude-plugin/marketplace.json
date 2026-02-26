@@ -7,12 +7,12 @@
   "metadata": {
     "description": "Official Zapier plugins — connect your AI to 8,000+ apps via the Model Context Protocol",
     "version": "1.0.0",
-    "pluginRoot": "plugins"
+    "pluginRoot": "./plugins"
   },
   "plugins": [
     {
       "name": "zapier",
-      "source": "./zapier",
+      "source": "zapier",
       "description": "Connect 8,000+ apps to your AI workflow. Discover, enable, and execute Zapier actions directly from your client.",
       "category": "productivity",
       "tags": [
