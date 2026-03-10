@@ -17,9 +17,9 @@ If no Zapier MCP tools are available at all (not even `get_configuration_url`), 
 
 **In other clients:** Tell the user to authenticate the Zapier MCP server through their client's MCP server settings. This will redirect them to mcp.zapier.com to sign in.
 
-Once authenticated, say "setup zapier" or trigger the **zapier-setup** skill to get started with adding tools.
+Once authenticated, **immediately trigger the zapier-setup skill**. Do not tell the user to "start using tools" or suggest other skills — a freshly authenticated server has no action tools configured yet, so `/zapier-setup` is the only useful next step.
 
-Do not try to call any Zapier tools or suggest the user configure actions until the server is connected.
+Do not suggest `/create-my-tools-profile` or `/zapier-status` until action tools exist. Do not try to call any Zapier tools or suggest the user configure actions until the server is connected.
 
 ## How tools work
 
@@ -72,6 +72,7 @@ When an error occurs, explain it in plain language. Don't dump raw error message
 
 ## Setup, maintenance, and troubleshooting
 
+- **New users / fresh installs**: Push the **zapier-setup** skill first. This is the primary onboarding path — get tools configured before anything else.
 - If tools aren't working or the user wants to add apps, trigger the **zapier-setup** skill.
 - For health checks, audits, or troubleshooting, trigger the **zapier-status** skill.
-- After adding tools, use the **create-my-tools-profile** skill to generate personalized instructions.
+- **Only after tools are configured** (action tools like `slack_send_channel_message` exist — not just `get_configuration_url`): offer the **create-my-tools-profile** skill to generate personalized instructions. Never suggest this skill when no action tools are available.

@@ -9,6 +9,16 @@ Scan the user's configured Zapier MCP tools and generate a personalized instruct
 
 This is the "post-onboarding" step: the user has already added tools via the setup skill, and now we crystallize that into persistent instructions.
 
+## Prerequisite: Verify tools exist
+
+Before proceeding, check that Zapier MCP action tools are available (tools like `slack_send_channel_message`, `gmail_find_email` — not just the built-in `get_configuration_url`).
+
+If no action tools are configured, **stop here** and redirect:
+
+"You don't have any tools set up yet, so there's nothing to build a profile from. Let's get some tools configured first."
+
+Then trigger the **zapier-setup** skill instead. Do not continue with the steps below.
+
 ## Step 1: Inventory enabled tools
 
 Inspect the available Zapier MCP tools. Each configured action is its own tool with a name following the pattern `app_action_name` (e.g., `slack_send_channel_message`, `gmail_find_email`). The built-in `get_configuration_url` tool should be excluded from the profile.
