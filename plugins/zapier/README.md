@@ -4,12 +4,16 @@ Connect 8,000+ apps to your AI workflow. Configure your actions at mcp.zapier.co
 
 ## Quick Start
 
-After installing, open a chat and say **"setup zapier"**. The onboarding skill will:
+After installing:
 
-1. Check your connection status
-2. Walk you through authenticating your Zapier account
-3. Help you pick the right tools for your workflow
-4. Generate a personalized AI profile so future chats know your tools
+1. Connect the Zapier MCP server in your client's settings:
+   - **Cursor:** Settings > Cursor Settings > Tools & MCP > click **Connect**
+   - **Claude Desktop:** Customize > Connectors > Zapier > click **Connect**
+   - **Other clients:** Find the Zapier MCP server in your MCP settings and connect
+2. Sign in to your Zapier account when prompted
+3. Open a chat and say **"setup zapier"** to add tools to your workflow
+
+The onboarding skill will help you pick the right tools and generate a personalized AI profile so future chats know your tools.
 
 ## What's Included
 

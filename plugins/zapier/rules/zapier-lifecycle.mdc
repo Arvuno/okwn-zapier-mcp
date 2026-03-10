@@ -7,6 +7,20 @@ alwaysApply: true
 
 This workspace uses Zapier MCP to connect your AI to external apps. These rules govern how you interact with Zapier tools.
 
+## First-time setup
+
+If no Zapier MCP tools are available at all (not even `get_configuration_url`), the Zapier MCP server is installed but not yet authenticated.
+
+**In Cursor:** Tell the user to go to **Settings > Cursor Settings > Tools & MCP** and click **Connect** next to the Zapier MCP server (shortcut: **Cmd+Shift+P** > search "MCP"). This will open the Zapier sign-in flow.
+
+**In Claude Desktop:** Tell the user to go to **Customize > Connectors > Zapier** and click **Connect**.
+
+**In other clients:** Tell the user to authenticate the Zapier MCP server through their client's MCP server settings. This will redirect them to mcp.zapier.com to sign in.
+
+Once authenticated, say "setup zapier" or trigger the **zapier-setup** skill to get started with adding tools.
+
+Do not try to call any Zapier tools or suggest the user configure actions until the server is connected.
+
 ## How tools work
 
 Zapier MCP exposes each configured action as its own tool. Tool names follow the pattern `app_action_name` (e.g., `gmail_send_email`, `slack_find_message`, `jira_find_issue_by_key`). The tool description identifies the associated app.

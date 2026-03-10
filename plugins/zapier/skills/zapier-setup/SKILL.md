@@ -11,12 +11,12 @@ Check whether any Zapier MCP tools are available, then branch based on what come
 
 Try calling `get_configuration_url` or any Zapier tool. The result determines which branch to follow:
 
-| Result                                                        | Branch            |
-| ------------------------------------------------------------- | ----------------- |
-| Zapier action tools are available (e.g., `gmail_send_email`)  | **Healthy**       |
-| Only `get_configuration_url` is available (no action tools)   | **Fresh install** |
-| Fails with auth/401 error                                     | **Auth broken**   |
-| No Zapier tools available at all (server errored / 0 tools)   | **Auth broken**   |
+| Result                                                        | Branch              |
+| ------------------------------------------------------------- | ------------------- |
+| Zapier action tools are available (e.g., `gmail_send_email`)  | **Healthy**         |
+| Only `get_configuration_url` is available (no action tools)   | **Fresh install**   |
+| Fails with auth/401 error                                     | **Auth broken**     |
+| No Zapier tools available at all (server not connected)       | **Not connected**   |
 
 ## Branch: Healthy
 
@@ -41,7 +41,7 @@ Everything's working. What would you like to do?"
 
 ## Branch: Auth broken
 
-The server exists in the config but authentication has expired or is invalid. This also covers the case where zero Zapier tools are available (the server is errored) — that's almost always an auth problem.
+The server exists in the config but authentication has expired or is invalid.
 
 1. Tell the user:
 
@@ -55,6 +55,26 @@ Sign in, find your server, and re-authenticate. Come back and say **done** when 
 3. Try calling a Zapier tool again to verify.
 4. If it works: show the Healthy summary.
 5. If it still fails: suggest deleting and recreating the server config. Offer to help update the MCP config file with a fresh token (see "MCP config by client" below).
+
+## Branch: Not connected
+
+The Zapier MCP server is installed via the plugin but hasn't been authenticated yet. This is the most common state on a fresh install — zero Zapier tools are visible because the server hasn't been connected.
+
+1. Tell the user the Zapier plugin is installed but needs to be connected first.
+
+2. Guide them based on their client:
+
+   - **In Cursor:** "Go to **Settings > Cursor Settings > Tools & MCP** and click **Connect** next to the Zapier MCP server. You can also press **Cmd+Shift+P** and search for 'MCP' to get there quickly."
+   - **In Claude Desktop:** "Go to **Customize > Connectors > Zapier** and click **Connect**."
+   - **In other clients:** "Find the Zapier MCP server in your client's MCP settings and connect it. This will redirect you to mcp.zapier.com to sign in."
+
+   Detect which client is in use from the environment or conversation context. If unclear, give the generic instructions.
+
+3. Explain that connecting will open the Zapier sign-in flow at mcp.zapier.com where they'll authenticate their account.
+
+4. Wait for the user to confirm ("done").
+
+5. Re-diagnose by checking available Zapier MCP tools. Proceed to the appropriate branch — most likely **Fresh install** (server connected, no action tools yet).
 
 ## Branch: Fresh install
 
