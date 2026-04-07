@@ -19,9 +19,13 @@ Identify the mode once at the start of a conversation and follow the correspondi
 
 ## First-time setup
 
-If no Zapier MCP tools are available at all, the Zapier MCP server is installed but not yet authenticated - please prompt for authentication.
+If no Zapier MCP tools are available at all, the Zapier MCP server is installed but not yet authenticated.
 
-**In Cursor:** Prompt the user to authenticate the MCP server
+First, attempt to authenticate directly in the chat by calling `mcp_auth` on the Zapier MCP server. If that succeeds, proceed to mode detection and onboarding.
+
+If `mcp_auth` fails or is unavailable, fall back to manual instructions based on their client:
+
+**In Cursor:** Tell the user to go to **Settings > Cursor Settings > Tools & MCP** and click **Connect** next to the Zapier MCP server. They can also press **Cmd+Shift+P** and search for 'MCP'.
 
 **In Claude Desktop:** Tell the user to go to **Customize > Connectors > Zapier** and click **Connect**.
 
@@ -161,6 +165,8 @@ Users may have both Zapier MCP actions AND native MCP servers for the same app (
 When an error occurs, explain it in plain language. Don't dump raw error messages. "Your Slack connection needs to be re-authenticated" beats "Error 401: OAuth token invalid for SlackCLIAPI."
 
 ## Setup, maintenance, and troubleshooting
+
+- **Intro / discovery questions** ("how does Zapier work", "show me the Zapier plugin", "what is Zapier MCP", "tell me about Zapier"): Trigger the **zapier-setup** skill. It handles the intro pitch, authentication, mode detection, and full setup flow for both new and returning users.
 
 ### Agentic mode
 
