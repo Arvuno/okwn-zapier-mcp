@@ -7,6 +7,16 @@ description: Set up Zapier MCP and add tools to your AI assistant. Runs a diagno
 
 Check whether any Zapier MCP tools are available, then branch based on what comes back.
 
+## Pre-check: Agentic mode
+
+Before running the Classic diagnostic below, check if `list_enabled_zapier_actions` is available as a tool. If it is, the user is on Agentic mode and this skill's Classic flow does not apply.
+
+**If on Agentic mode:** Call `get_zapier_skill` with name `"zapier-mcp-onboarding"` on the Zapier MCP server and follow its instructions. If authentication is needed, help the user through it, then retry the call. **Do not continue with the steps below** — the Zapier-hosted onboarding skill handles the entire Agentic setup flow.
+
+---
+
+The rest of this skill applies only to **Classic mode** (where `get_configuration_url` and individual `app_action_name` tools are present, but `list_enabled_zapier_actions` is not).
+
 ## Step 1: Diagnose
 
 Try calling `get_configuration_url` or any Zapier tool. The result determines which branch to follow:
