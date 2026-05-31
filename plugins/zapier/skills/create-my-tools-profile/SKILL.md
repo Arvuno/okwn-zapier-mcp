@@ -36,7 +36,7 @@ Exclude the 14 static meta-tools from the profile — only include the user's en
 
 ### Classic mode
 
-Inspect the available Zapier MCP tools. Each configured action is its own tool with a name following the pattern `app_action_name` (e.g., `slack_send_channel_message`, `gmail_find_email`). The built-in `get_configuration_url` tool should be excluded from the profile.
+Inspect the available Zapier MCP tools. Each configured action is it's own tool with a name following the pattern `app_action_name` (e.g., `slack_send_channel_message`, `gmail_find_email`). The built-in `get_configuration_url` tool should be excluded from the profile.
 
 Parse the available tools into a structured list:
 
@@ -139,7 +139,7 @@ You have access to the following apps and actions through Zapier MCP. Use them p
 
 For each action, write a practical one-liner about when to use it. Don't just restate the action name.
 
-**Good**: "Look up a Jira issue by its key (e.g., PROJ-123) to get status, assignee, and description"
+**Good**: "Look up a Jira issue by it's key (e.g., PROJ-123) to get status, assignee, and description"
 **Bad**: "Find issue by key in Jira"
 
 **Good**: "Send a message to a Slack channel — use for team updates, announcements, or sharing summaries"

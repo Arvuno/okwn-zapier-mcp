@@ -7,7 +7,7 @@ description: Check the health of your Zapier MCP setup. Three modes — health c
 
 Three modes for monitoring and maintaining a Zapier MCP setup. Determine the mode from context, or ask if unclear.
 
-**First, detect the server mode:** If `list_enabled_zapier_actions` is available, the user is on **Agentic mode**. Otherwise, the user is on **Classic mode** where each configured action is its own MCP tool (e.g., `slack_send_channel_message`, `gmail_find_email`).
+**First, detect the server mode:** If `list_enabled_zapier_actions` is available, the user is on **Agentic mode**. Otherwise, the user is on **Classic mode** where each configured action is it's own MCP tool (e.g., `slack_send_channel_message`, `gmail_find_email`).
 
 ## Mode 1: Health check
 

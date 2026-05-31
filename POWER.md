@@ -23,12 +23,12 @@ Authorization: Use OAuth to connect to the Zapier MCP server
 Zapier MCP operates in one of two modes. Check which tools are available:
 
 - **Agentic mode**: `list_enabled_zapier_actions` is present — actions are managed and executed via meta-tools in chat
-- **Classic mode**: `get_configuration_url` + individual `app_action_name` tools (e.g., `gmail_send_email`) — each configured action is its own MCP tool
+- **Classic mode**: `get_configuration_url` + individual `app_action_name` tools (e.g., `gmail_send_email`) — each configured action is it's own MCP tool
 - **Not connected**: No Zapier tools available — the server needs authentication
 
 ### Step 3: Get started
 
-- **Agentic mode**: Call `get_zapier_skill` with name `"zapier-mcp-onboarding"` and follow its instructions
+- **Agentic mode**: Call `get_zapier_skill` with name `"zapier-mcp-onboarding"` and follow it's instructions
 - **Classic mode**: Say **"setup zapier"** to trigger the setup workflow
 - **Not connected**: Attempt `mcp_auth` on the Zapier MCP server, or follow the manual connection steps above
 

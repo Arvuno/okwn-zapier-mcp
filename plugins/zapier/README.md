@@ -36,7 +36,7 @@ Key tools: `list_enabled_zapier_actions`, `discover_zapier_actions`, `enable_zap
 
 ### Classic
 
-In Classic mode, each action you configure at [mcp.zapier.com](https://mcp.zapier.com) becomes its own MCP tool, named with the pattern `app_action_name`:
+In Classic mode, each action you configure at [mcp.zapier.com](https://mcp.zapier.com) becomes it's own MCP tool, named with the pattern `app_action_name`:
 
 - **`gmail_send_email`** — Send an email via Gmail
 - **`slack_find_message`** — Search for a Slack message

@@ -105,7 +105,7 @@ The more actions you enable, the more capable your AI becomes. You can build a f
 
 ## Plugins
 
-This repo also hosts official Zapier plugins for AI workflows. Each plugin is a standalone directory under `plugins/` with its own manifest.
+This repo also hosts official Zapier plugins for AI workflows. Each plugin is a standalone directory under `plugins/` with it's own manifest.
 
 | Plugin | Category | Description |
 |--------|----------|-------------|
